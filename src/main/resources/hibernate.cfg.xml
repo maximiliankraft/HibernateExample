@@ -5,4 +5,5 @@
         <mapping class="at.spengergasse.hibernate.Person"/>
     </session-factory>
 
+
 </hibernate-configuration>

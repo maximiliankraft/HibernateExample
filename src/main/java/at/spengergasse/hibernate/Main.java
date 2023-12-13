@@ -15,27 +15,23 @@ public class Main {
 
         session.beginTransaction();
 
-        //var result = session.find(Person.class, 1L);
-        //System.out.println(result);
-
         session.save(person);
+
         session.getTransaction().commit();
 
         Person savedPerson = session.get(Person.class, person.getId());
 
-        System.out.println(savedPerson);
 
+        System.out.println("savedPerson");
+        System.out.println(savedPerson);
 
         session.close();
         sessionFactory.close();
-
-
     }
 
-    private static SessionFactory buildSessionFactory(Class clazz) {
+    private static SessionFactory buildSessionFactory(Class<?> clazz) {
         return new Configuration()
                 .addAnnotatedClass(clazz)
-                .addAnnotatedClass(Person.class)
                 .configure()
                 .buildSessionFactory();
     }
